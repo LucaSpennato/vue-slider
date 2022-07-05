@@ -27,3 +27,20 @@ const slides = [
 ];
 
 console.log(slides);
+
+const app = new Vue(
+    {
+        el: '#app',
+        data:{
+            index: 0,
+        },
+
+        methods: {
+            log: function(){
+                
+                console.log(slides[this.index].image);
+            }
+        }
+
+})
+
