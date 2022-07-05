@@ -35,6 +35,7 @@ const app = new Vue(
             currentSlide: 0,
             currentImg: slides[0].image,
             currentLocation: slides[0].title,
+            currentText: slides[0].text,
         },
 
         methods: {
@@ -48,6 +49,7 @@ const app = new Vue(
 
                 this.currentImg = slides[this.currentSlide].image;
                 this.currentLocation = slides[this.currentSlide].title; 
+                this.currentText = slides[this.currentSlide].text;
             },
             prevSlide: function(){
                 
@@ -59,6 +61,7 @@ const app = new Vue(
 
                 this.currentImg = slides[this.currentSlide].image;
                 this.currentLocation = slides[this.currentSlide].title;
+                this.currentText = slides[this.currentSlide].text;
             }
         }
 
