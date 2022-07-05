@@ -26,19 +26,28 @@ const slides = [
     }
 ];
 
-console.log(slides);
+console.log(slides[0].image);
 
 const app = new Vue(
     {
         el: '#app',
         data:{
             index: 0,
+            currentImg: slides[0].image,
         },
 
         methods: {
-            log: function(){
+            nextSlide: function(){
                 
-                console.log(slides[this.index].image);
+                this.index++
+                console.log(this.index);
+
+                this.currentImg = slides[this.index].image;
+                console.log(this.currentImg);
+                
+                if(this.index === slides.length-1){
+                    this.index = -1;
+                }
             }
         }
 
