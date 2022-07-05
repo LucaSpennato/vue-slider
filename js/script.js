@@ -42,7 +42,7 @@ const app = new Vue(
                 this.index++
                 console.log(this.index);
                 
-                if(this.index === slides.length-1){
+                if(this.index === slides.length){
                     this.index = 0;
                 };
 
