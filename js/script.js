@@ -34,33 +34,31 @@ const app = new Vue(
         data:{
             currentSlide: 0,
             currentImg: slides[0].image,
+            currentLocation: slides[0].title,
         },
 
         methods: {
             nextSlide: function(){
                 
                 this.currentSlide++
-                console.log(this.currentSlide);
                 
                 if(this.currentSlide === slides.length){
                     this.currentSlide = 0;
                 };
 
                 this.currentImg = slides[this.currentSlide].image;
-                console.log(this.currentImg);
+                this.currentLocation = slides[this.currentSlide].title; 
             },
             prevSlide: function(){
                 
                 this.currentSlide--
-                console.log(this.currentSlide);
 
                 if(this.currentSlide === -1){
                     this.currentSlide = slides.length-1;
                 }
 
                 this.currentImg = slides[this.currentSlide].image;
-                console.log(this.currentImg);
-                
+                this.currentLocation = slides[this.currentSlide].title;
             }
         }
 
