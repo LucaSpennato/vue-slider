@@ -26,7 +26,7 @@ const slides = [
     }
 ];
 
-console.log(slides[0].image);
+console.log(slides.length-1);
 
 const app = new Vue(
     {
@@ -41,13 +41,26 @@ const app = new Vue(
                 
                 this.index++
                 console.log(this.index);
+                
+                if(this.index === slides.length-1){
+                    this.index = -1;
+                };
+
+                this.currentImg = slides[this.index].image;
+                console.log(this.currentImg);
+            },
+            prevSlide: function(){
+                
+                this.index--
+                console.log(this.index);
+
+                if(this.index === -1){
+                    this.index = 4;
+                }
 
                 this.currentImg = slides[this.index].image;
                 console.log(this.currentImg);
                 
-                if(this.index === slides.length-1){
-                    this.index = -1;
-                }
             }
         }
 
