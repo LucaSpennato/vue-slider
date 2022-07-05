@@ -43,7 +43,7 @@ const app = new Vue(
                 console.log(this.index);
                 
                 if(this.index === slides.length-1){
-                    this.index = -1;
+                    this.index = 0;
                 };
 
                 this.currentImg = slides[this.index].image;
@@ -55,7 +55,7 @@ const app = new Vue(
                 console.log(this.index);
 
                 if(this.index === -1){
-                    this.index = 4;
+                    this.index = slides.length-1;
                 }
 
                 this.currentImg = slides[this.index].image;
