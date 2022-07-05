@@ -26,7 +26,9 @@ const slides = [
     }
 ];
 
-console.log(slides.length-1);
+console.log(document.querySelectorAll('.thumb')[1]);
+
+
 
 const app = new Vue(
     {
@@ -36,13 +38,18 @@ const app = new Vue(
             currentImg: slides[0].image,
             currentLocation: slides[0].title,
             currentText: slides[0].text,
+            thumbs: document.querySelectorAll('.thumb')[0],
+            active: '',
         },
 
         methods: {
             nextSlide: function(){
-                
+
+                this.thumbs = document.querySelectorAll('.thumb')[this.currentSlide];
+                this.thumbs.classList.remove('active');
+
                 this.currentSlide++
-                
+
                 if(this.currentSlide === slides.length){
                     this.currentSlide = 0;
                 };
@@ -50,6 +57,9 @@ const app = new Vue(
                 this.currentImg = slides[this.currentSlide].image;
                 this.currentLocation = slides[this.currentSlide].title; 
                 this.currentText = slides[this.currentSlide].text;
+                this.thumbs =  document.querySelectorAll('.thumb')[this.currentSlide];
+                this.thumbs.classList.add('active');
+                
             },
             prevSlide: function(){
                 
@@ -66,4 +76,6 @@ const app = new Vue(
         }
 
 })
+
+console.log(document.querySelectorAll('.thumb'))
 
