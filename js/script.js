@@ -32,33 +32,33 @@ const app = new Vue(
     {
         el: '#app',
         data:{
-            index: 0,
+            currentSlide: 0,
             currentImg: slides[0].image,
         },
 
         methods: {
             nextSlide: function(){
                 
-                this.index++
-                console.log(this.index);
+                this.currentSlide++
+                console.log(this.currentSlide);
                 
-                if(this.index === slides.length){
-                    this.index = 0;
+                if(this.currentSlide === slides.length){
+                    this.currentSlide = 0;
                 };
 
-                this.currentImg = slides[this.index].image;
+                this.currentImg = slides[this.currentSlide].image;
                 console.log(this.currentImg);
             },
             prevSlide: function(){
                 
-                this.index--
-                console.log(this.index);
+                this.currentSlide--
+                console.log(this.currentSlide);
 
-                if(this.index === -1){
-                    this.index = slides.length-1;
+                if(this.currentSlide === -1){
+                    this.currentSlide = slides.length-1;
                 }
 
-                this.currentImg = slides[this.index].image;
+                this.currentImg = slides[this.currentSlide].image;
                 console.log(this.currentImg);
                 
             }
