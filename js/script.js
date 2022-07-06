@@ -5,6 +5,7 @@ const app = new Vue(
         el: '#app',
         data:{
             currentSlide: 0,
+            isAutoPlayOn: null,
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -56,7 +57,28 @@ const app = new Vue(
 
                 this.currentSlide = indexMovingTo;
 
-            }
-        }
+            },
+
+            startAutoPlay: function(){
+
+                this.isAutoPlayOn = setInterval(() => {
+                    this.nextSlide();
+                },3000)
+
+            },
+
+            stopAutoPlay: function(){
+
+                clearInterval(this.isAutoPlayOn);
+                this.isAutoPlayOn = null;
+
+            },
+        },
+
+        created(){
+
+            this.startAutoPlay();
+
+        },
 
 })
