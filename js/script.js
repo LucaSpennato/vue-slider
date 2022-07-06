@@ -52,6 +52,11 @@ const app = new Vue(
                     this.currentSlide--
                 }
             },
+            changeSlideToClicked: function(indexMovingTo){
+
+                this.currentSlide = indexMovingTo;
+
+            }
         }
 
 })

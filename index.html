@@ -32,6 +32,7 @@
                     
                     <div class="thumb" 
                     v-for="(thumb, index) in slides "
+                    @click="changeSlideToClicked(index)"
                     :class="(currentSlide === index ? 'active' : '')">
                         <img :src="slides[index].image" alt="slides[index].title"/>
                     </div>
