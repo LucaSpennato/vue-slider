@@ -14,14 +14,14 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" :tabindex="currentSlide">
+            <div class="slider-wrapper" :tabindex="0">
 
                 <div class="item">
-                    <img :src="currentImg" :alt="currentLocation" />
+                    <img :src="slides[currentSlide].image" :alt="slides[currentSlide].title" />
                     <div class="text">
-                        <h3>{{ currentLocation }}</h3>
+                        <h3>{{ slides[currentSlide].title }}</h3>
                         <p>
-                            {{ currentText }}
+                            {{ slides[currentSlide].text }}
                         </p>
                     </div>
                 </div>
@@ -29,20 +29,11 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
-                    <div class="thumb" :class="(currentSlide==0 ? 'active' : '')">
-                        <img src="img/01.jpg" alt="Svezia"/>
-                    </div>
-                    <div class="thumb" :class="(currentSlide==1 ? 'active' : '')">
-                        <img src="img/02.jpg" alt="Svizzera"/>
-                    </div>
-                    <div class="thumb" :class="(currentSlide==2 ? 'active' : '')">
-                        <img src="img/03.jpg" alt="Gran Bretagna" />
-                    </div>
-                    <div class="thumb" :class="(currentSlide==3 ? 'active' : '')">
-                        <img src="img/04.jpg" alt="Germania" />
-                    </div>
-                    <div class="thumb" :class="(currentSlide==4 ? 'active' : '')">
-                        <img src="img/05.jpg" alt="Paradise" />
+                    
+                    <div class="thumb" 
+                    v-for="(thumb, index) in slides "
+                    :class="(currentSlide === index ? 'active' : '')">
+                        <img :src="slides[index].image" alt="slides[index].title"/>
                     </div>
                 </div>
 
